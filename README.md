@@ -26,7 +26,7 @@ To run this project locally:
 
 ```sh
 # Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://github.com/hossanatito/infinitedl.git
 
 # Navigate to the project directory
 cd infinitedl
