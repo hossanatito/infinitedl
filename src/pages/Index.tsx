@@ -55,9 +55,9 @@ const Index = () => {
         <NavigationBar />
         
         <header className="mb-12 text-center mt-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent flex items-center justify-center gap-2">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500 bg-clip-text text-transparent flex items-center justify-center gap-2">
             <span className="transform transition-all hover:scale-110 relative">
-              <Cuboid className="text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" 
+              <Cuboid className="text-blue-600 dark:text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" 
                 size={32} 
                 strokeWidth={1.5}
                 style={{
@@ -68,7 +68,7 @@ const Index = () => {
             </span>
             InfiniteDL
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto font-manrope">
+          <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto font-manrope">
             Your smart download link generator for online courses
           </p>
         </header>
@@ -87,7 +87,7 @@ const Index = () => {
           )}
         </main>
 
-        <footer className="mt-20 text-center text-gray-500 text-sm">
+        <footer className="mt-20 text-center text-gray-600 dark:text-gray-500 text-sm">
           <p>© 2025 InfiniteDL - Smart Download Link Generator</p>
         </footer>
       </div>

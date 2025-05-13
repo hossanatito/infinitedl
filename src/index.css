@@ -86,11 +86,17 @@
 
 @layer components {
   .gradient-background {
-    @apply bg-white dark:bg-transparent;
     position: relative;
     overflow: hidden;
   }
   
+  /* Light mode gradient */
+  .gradient-background {
+    background: linear-gradient(135deg, rgba(230, 230, 250, 0.9), rgba(208, 191, 255, 0.8));
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Dark mode gradient */
   .dark .gradient-background {
     background: radial-gradient(ellipse at top right, rgba(76, 29, 149, 0.5), rgba(30, 58, 138, 0.3)),
                 linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(10, 10, 20) 100%);
@@ -148,4 +154,3 @@
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(129, 140, 248, 0.9));
   }
 }
-
