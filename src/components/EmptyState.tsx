@@ -4,7 +4,7 @@ import { ArrowDown } from "lucide-react";
 const EmptyState = () => {
   return (
     <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
-      <div className="mb-6 p-6 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-600/20">
+      <div className="mb-6 p-6 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-white/5">
         <div className="text-6xl">✨</div>
       </div>
       <h2 className="text-2xl font-bold mb-3 text-white">Smart Download Link Generator</h2>

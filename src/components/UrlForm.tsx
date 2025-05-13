@@ -1,17 +1,21 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { ArrowRight } from "lucide-react";
+
 interface UrlFormProps {
   onSubmit: (url: string) => void;
   isLoading: boolean;
 }
+
 const UrlForm = ({
   onSubmit,
   isLoading
 }: UrlFormProps) => {
   const [url, setUrl] = useState("");
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!url.trim()) {
@@ -27,19 +31,40 @@ const UrlForm = ({
       toast.error("Please enter a valid URL");
     }
   };
-  return <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
       <div className="flex flex-col sm:flex-row gap-3">
-        <Input type="text" name="url" placeholder="Enter Course URL" value={url} onChange={e => setUrl(e.target.value)} disabled={isLoading} required className="bg-muted/40 border-muted text-white placeholder:text-gray-400 h-12" />
-        <Button type="submit" disabled={isLoading} className="h-12 px-6 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600">
-          {isLoading ? <div className="flex items-center gap-2">
+        <Input 
+          type="text" 
+          name="url" 
+          placeholder="Enter Course URL" 
+          value={url} 
+          onChange={e => setUrl(e.target.value)} 
+          disabled={isLoading} 
+          required 
+          className="bg-black/20 border border-white/10 text-white placeholder:text-gray-400 h-12 focus:border-blue-500 focus:ring-blue-500/20" 
+        />
+        <Button 
+          type="submit" 
+          disabled={isLoading} 
+          className="h-12 px-6 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 border border-white/10"
+        >
+          {isLoading ? (
+            <div className="flex items-center gap-2">
               <div className="h-4 w-4 rounded-full border-2 border-white border-t-transparent animate-spin"></div>
               <span>Processing...</span>
-            </div> : <div className="flex items-center gap-2">
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
               <span>Generate Links</span>
               <ArrowRight size={18} />
-            </div>}
+            </div>
+          )}
         </Button>
       </div>
-    </form>;
+    </form>
+  );
 };
+
 export default UrlForm;
