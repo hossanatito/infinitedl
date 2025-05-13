@@ -71,6 +71,8 @@ const CourseCard = ({ course }: CourseCardProps) => {
           <Accordion type="single" collapsible className="w-full">
             {downloadLinkGroups.map((groupKey, index) => {
               const links = course[groupKey] as string[];
+              // Transform "Download Links X" to "Mirror Links X"
+              const displayName = groupKey.replace("Download Links", "Mirror Links");
               
               return (
                 <AccordionItem 
@@ -79,7 +81,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
                   className="border-white/10"
                 >
                   <AccordionTrigger className="text-lg text-white hover:text-blue-400">
-                    {groupKey.replace(/([0-9]+)/g, ' $1')}
+                    {displayName.replace(/([0-9]+)/g, ' $1')}
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
