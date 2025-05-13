@@ -44,7 +44,6 @@
 
   body {
     @apply bg-background text-foreground font-inter;
-    background: linear-gradient(to bottom right, #1a202c, #2d3748, #1a202c);
     min-height: 100vh;
   }
 
@@ -54,6 +53,12 @@
 }
 
 @layer components {
+  .gradient-background {
+    background: radial-gradient(circle at top right, #2d3748, #1a202c),
+                linear-gradient(to bottom right, rgba(90, 50, 220, 0.2), rgba(20, 30, 60, 0.3));
+    background-blend-mode: overlay;
+  }
+  
   .gradient-card {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4));
     backdrop-filter: blur(10px);

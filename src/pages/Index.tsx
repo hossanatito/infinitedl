@@ -5,6 +5,8 @@ import CourseCard from "@/components/CourseCard";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import EmptyState from "@/components/EmptyState";
 import { toast } from "sonner";
+import { NavigationBar } from "@/components/NavigationBar";
+import { Sparkles } from "lucide-react";
 
 interface CourseData {
   image: string;
@@ -16,7 +18,7 @@ interface CourseData {
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [courseData, setCourseData] = useState<CourseData[]>([]);
+  const [courseData, setCourseData] = useState<CourseData | null>(null);
 
   const handleSubmit = async (url: string) => {
     setIsLoading(true);
@@ -35,6 +37,7 @@ const Index = () => {
       }
 
       const data = await response.json();
+      console.log("API Response:", data); // Debug log
       setCourseData(data);
       toast.success("Course download links generated successfully!");
 
@@ -47,12 +50,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6">
-      <header className="mb-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+    <div className="min-h-screen py-12 px-4 sm:px-6 gradient-background">
+      <NavigationBar />
+      
+      <header className="mb-12 text-center mt-20">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent flex items-center justify-center gap-2">
+          <Sparkles className="text-blue-400" size={32} />
           InfiniteDL
         </h1>
-        <p className="text-gray-300 max-w-2xl mx-auto">
+        <p className="text-gray-300 max-w-2xl mx-auto font-manrope">
           Your smart download link generator for online courses
         </p>
       </header>
@@ -64,12 +70,8 @@ const Index = () => {
       <main className="max-w-6xl mx-auto">
         {isLoading ? (
           <LoadingAnimation />
-        ) : courseData.length > 0 ? (
-          <div className="space-y-12">
-            {courseData.map((course, index) => (
-              <CourseCard key={index} course={course} />
-            ))}
-          </div>
+        ) : courseData ? (
+          <CourseCard course={courseData} />
         ) : (
           <EmptyState />
         )}
