@@ -9,13 +9,13 @@ export const NavigationBar = () => {
       
       <div className="flex items-center space-x-6">
         <Link to="/" className="text-gray-300 hover:text-white transition-colors flex items-center gap-1">
-          <Home size={16} />
-          <span className="font-manrope">Home</span>
+          
+          <span className="font-manrope">home</span>
         </Link>
         
         <a href="mailto:cynosurictechlabs@gmail.com" className="text-gray-300 hover:text-white transition-colors flex items-center gap-1">
           <Mail size={16} />
-          <span className="font-manrope">Contact Me</span>
+          <span className="font-manrope">contact me</span>
         </a>
       </div>
     </nav>;
