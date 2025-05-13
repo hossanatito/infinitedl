@@ -41,11 +41,11 @@ const CourseCard = ({ course }: CourseCardProps) => {
       {/* Course Content */}
       <div className="p-6 md:p-8">
         {/* Title and Info */}
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-slate-800 dark:text-white">
           {course["Course Title"]}
         </h1>
         
-        <p className="text-gray-300 mb-6">
+        <p className="text-slate-700 dark:text-gray-300 mb-6">
           {course.Info}
         </p>
         
@@ -55,7 +55,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
             href={course["Course URL"]} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
           >
             <ExternalLink size={16} />
             <span>View Original Course</span>
@@ -64,7 +64,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
 
         {/* Download Links Sections */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold mb-4 border-b border-white/10 pb-2">
+          <h2 className="text-xl font-semibold mb-4 border-b border-gray-200 dark:border-white/10 pb-2 text-slate-800 dark:text-white">
             Download Links
           </h2>
           
@@ -78,9 +78,9 @@ const CourseCard = ({ course }: CourseCardProps) => {
                 <AccordionItem 
                   key={index} 
                   value={`group-${index}`}
-                  className="border-white/10"
+                  className="border-gray-200 dark:border-white/10"
                 >
-                  <AccordionTrigger className="text-lg text-white hover:text-blue-400">
+                  <AccordionTrigger className="text-lg text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
                     {displayName.replace(/([0-9]+)/g, ' $1')}
                   </AccordionTrigger>
                   <AccordionContent>
